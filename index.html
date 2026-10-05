@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bryn Whyman — things I made</title>
+  <meta name="description" content="A running list of fun projects by Bryn Whyman.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✦</text></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="intro">
+    <p class="kicker">brynwhyman.com</p>
+    <h1>Bryn Whyman<br><span>makes things for fun.</span></h1>
+    <p class="lede">
+      Small experiments, odd tools and side projects that probably didn't need to exist.
+      Some work. Some are still on the bench. Some got retired with honours.
+    </p>
+  </header>
+
+  <main>
+    <div class="toolbar">
+      <div class="filters" role="group" aria-label="Filter projects by status">
+        <button class="chip is-active" data-filter="all" aria-pressed="true">All <span class="count" data-count="all"></span></button>
+        <button class="chip" data-filter="live" aria-pressed="false">Live <span class="count" data-count="live"></span></button>
+        <button class="chip" data-filter="tinkering" aria-pressed="false">Tinkering <span class="count" data-count="tinkering"></span></button>
+        <button class="chip" data-filter="retired" aria-pressed="false">Retired <span class="count" data-count="retired"></span></button>
+      </div>
+      <button class="shuffle" id="surprise" type="button">Surprise me ↯</button>
+    </div>
+
+    <ol class="grid" id="projects"></ol>
+    <noscript><p>The project list needs JavaScript. Sorry about that.</p></noscript>
+  </main>
+
+  <footer>
+    <p>Made by Bryn, in between other things. © <span id="year"></span></p>
+  </footer>
+
+  <script src="projects.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
