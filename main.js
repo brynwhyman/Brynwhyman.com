@@ -1,64 +1,58 @@
 (function () {
   const projects = window.PROJECTS || [];
   const list = document.getElementById("projects");
-  const chips = document.querySelectorAll(".chip");
+  const ghost = document.getElementById("ghost");
+  const root = document.documentElement;
 
   const esc = (s) =>
     String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 
-  function card(p, i) {
-    const n = String(projects.length - i).padStart(3, "0");
-    const thumb = p.image
-      ? `<img src="${esc(p.image)}" alt="" loading="lazy">`
-      : `<span class="glyph" aria-hidden="true">${esc(p.glyph || "✦")}</span>`;
-    const tags = (p.tags || []).map((t) => `<li>${esc(t)}</li>`).join("");
-    const inner = `
-      <div class="thumb" style="--tile:${esc(p.color || "var(--accent-soft)")}">${thumb}</div>
-      <div class="meta">
-        <span class="num">№ ${n}</span>
-        <span class="status status-${esc(p.status)}">${esc(p.status)}</span>
-        <span class="year">${esc(p.year)}</span>
-      </div>
-      <h2>${esc(p.title)}</h2>
-      <p>${esc(p.blurb)}</p>
-      <ul class="tags">${tags}</ul>`;
-    const body = p.url
-      ? `<a class="card" href="${esc(p.url)}">${inner}<span class="arrow" aria-hidden="true">↗</span></a>`
-      : `<div class="card">${inner}</div>`;
-    return `<li data-status="${esc(p.status)}">${body}</li>`;
+  const statusNote = { live: "", tinkering: "still tinkering", retired: "retired" };
+
+  list.innerHTML = projects
+    .map((p, i) => {
+      const note = statusNote[p.status] ? `<em class="note">(${statusNote[p.status]})</em>` : "";
+      const tag = p.url ? "a" : "div";
+      const href = p.url ? ` href="${esc(p.url)}"` : "";
+      return `<li><${tag} class="row"${href} data-i="${i}">
+        <span class="yr">${esc(p.year)}</span>
+        <span class="name">${esc(p.title)}</span>
+        <span class="blurb">${esc(p.blurb)} ${note}</span>
+      </${tag}></li>`;
+    })
+    .join("");
+
+  document.getElementById("tally").textContent =
+    String(projects.length).padStart(2, "0") + " things";
+  document.getElementById("year").textContent = "© " + new Date().getFullYear();
+
+  // Hover floods the page with the project's colour and floats a preview by the cursor.
+  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  function show(i) {
+    const p = projects[i];
+    root.style.setProperty("--flood", p.color || "#fff");
+    document.body.classList.add("flooded");
+    ghost.innerHTML = p.image
+      ? `<img src="${esc(p.image)}" alt="">`
+      : `<span>${esc(p.glyph || "*")}</span>`;
+    ghost.classList.add("on");
+  }
+  function hide() {
+    document.body.classList.remove("flooded");
+    ghost.classList.remove("on");
   }
 
-  list.innerHTML = projects.map(card).join("");
-
-  // Counts on filter chips
-  const counts = { all: projects.length };
-  projects.forEach((p) => (counts[p.status] = (counts[p.status] || 0) + 1));
-  document.querySelectorAll("[data-count]").forEach((el) => {
-    el.textContent = counts[el.dataset.count] || 0;
+  list.querySelectorAll(".row").forEach((row) => {
+    row.addEventListener("mouseenter", () => show(+row.dataset.i));
+    row.addEventListener("focus", () => show(+row.dataset.i));
+    row.addEventListener("blur", hide);
   });
+  list.addEventListener("mouseleave", hide);
 
-  chips.forEach((chip) =>
-    chip.addEventListener("click", () => {
-      const f = chip.dataset.filter;
-      chips.forEach((c) => {
-        c.classList.toggle("is-active", c === chip);
-        c.setAttribute("aria-pressed", c === chip);
-      });
-      list.querySelectorAll("li[data-status]").forEach((li) => {
-        li.hidden = f !== "all" && li.dataset.status !== f;
-      });
-    })
-  );
-
-  document.getElementById("surprise").addEventListener("click", () => {
-    const visible = [...list.querySelectorAll("li[data-status]:not([hidden])")];
-    if (!visible.length) return;
-    const pick = visible[Math.floor(Math.random() * visible.length)];
-    list.querySelectorAll(".picked").forEach((el) => el.classList.remove("picked"));
-    pick.classList.add("picked");
-    pick.scrollIntoView({ behavior: "smooth", block: "center" });
-    pick.querySelector(".card").focus({ preventScroll: true });
-  });
-
-  document.getElementById("year").textContent = new Date().getFullYear();
+  if (fine) {
+    window.addEventListener("mousemove", (e) => {
+      ghost.style.transform = `translate(${e.clientX}px, ${e.clientY}px)`;
+    });
+  }
 })();
