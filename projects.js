@@ -1,41 +1,33 @@
 // Add, remove or reorder projects here. Newest first is a good default.
 //
+// Each project shows as a big image with a sentence underneath that starts
+// with the project's name, e.g. "Kettle Notifier texts you when the kettle boils".
+//
 // Fields:
-//   title    – project name
-//   blurb    – one or two sentences, the pitch
-//   url      – where it lives (optional)
-//   image    – path to a screenshot, e.g. "images/clock.jpg" (optional,
-//              but the page looks best when every project has one)
+//   title  – project name (bold, links to the project)
+//   blurb  – the rest of the sentence, starting after the name
+//   url    – where it lives (optional)
+//   image  – path to a screenshot, e.g. "images/kettle.jpg"
 
 window.PROJECTS = [
   {
     title: "Weather Mood Ring",
-    blurb: "A tiny page that turns today's forecast into a single colour. Placeholder — swap in a real project.",
+    blurb: "turns today's forecast into a single colour (placeholder)",
     url: "#",
   },
   {
     title: "Commit Haiku",
-    blurb: "Rewrites your git log as 5-7-5 poetry. Placeholder — swap in a real project.",
+    blurb: "rewrites your git log as 5-7-5 poetry (placeholder)",
     url: "#",
   },
   {
     title: "Kettle Notifier",
-    blurb: "Sends a push notification when the kettle boils. Nobody asked for this. Placeholder.",
-    url: "#",
-  },
-  {
-    title: "Infinite Lunch Menu",
-    blurb: "Generates a cafe menu that never repeats and never quite makes sense. Placeholder.",
-    url: "#",
-  },
-  {
-    title: "Desk Plant Census",
-    blurb: "A dashboard tracking how many office plants are still alive. Placeholder.",
+    blurb: "texts you when the kettle boils, which nobody asked for (placeholder)",
     url: "#",
   },
   {
     title: "One Button Radio",
-    blurb: "A radio with a single button that plays a random station from somewhere on Earth. Placeholder.",
+    blurb: "plays a random station from somewhere on Earth (placeholder)",
     url: "#",
   },
 ];
