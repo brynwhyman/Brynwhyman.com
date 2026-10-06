@@ -11,23 +11,15 @@
 
 window.PROJECTS = [
   {
-    title: "Weather Mood Ring",
-    blurb: "turns today's forecast into a single colour (placeholder)",
-    url: "#",
+    title: "Rocky Assistant",
+    blurb: "",
   },
   {
-    title: "Commit Haiku",
-    blurb: "rewrites your git log as 5-7-5 poetry (placeholder)",
-    url: "#",
+    title: "What movie should I watch tonight?",
+    blurb: "",
   },
   {
-    title: "Kettle Notifier",
-    blurb: "texts you when the kettle boils, which nobody asked for (placeholder)",
-    url: "#",
-  },
-  {
-    title: "One Button Radio",
-    blurb: "plays a random station from somewhere on Earth (placeholder)",
-    url: "#",
+    title: "Yadio",
+    blurb: "",
   },
 ];
