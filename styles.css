@@ -75,9 +75,9 @@ a { color: inherit; }
 .project img, .noimg {
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
 }
+.project img { height: auto; }
+.noimg { aspect-ratio: 16 / 10; }
 
 .project > a { display: block; text-decoration: none; }
 

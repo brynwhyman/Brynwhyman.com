@@ -12,21 +12,25 @@
 window.PROJECTS = [
   {
     title: "Bad Motherfucker",
+    image: "images/bad-motherfucker.jpg",
     blurb: "",
     url: "https://brynwhyman.github.io/bad-mfkr/",
   },
   {
     title: "Yardio",
+    image: "images/yardio.jpg",
     blurb: "",
     url: "https://useyardio.com",
   },
   {
     title: "WhatMovieShouldIWatchTonight",
+    image: "images/what-movie.jpg",
     blurb: "",
     url: "https://wmsiwt.com",
   },
   {
     title: "Rocky Assistant",
+    image: "images/rocky.jpg",
     blurb: "",
     url: "https://github.com/brynwhyman/rocky-family-assistant",
   },
