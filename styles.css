@@ -90,6 +90,8 @@ a { color: inherit; }
   font-size: 1.4rem;
 }
 
+.project p, .noimg { overflow-wrap: anywhere; }
+
 .project p {
   margin: 18px 0 0;
   font-size: clamp(1.4rem, 2.6vw, 1.9rem);

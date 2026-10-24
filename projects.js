@@ -11,15 +11,22 @@
 
 window.PROJECTS = [
   {
+    title: "Bad Motherfucker",
+    blurb: "",
+    url: "https://brynwhyman.github.io/bad-mfkr/",
+  },
+  {
+    title: "Yardio",
+    blurb: "",
+    url: "https://useyardio.com",
+  },
+  {
+    title: "WhatMovieShouldIWatchTonight",
+    blurb: "",
+    url: "https://wmsiwt.com",
+  },
+  {
     title: "Rocky Assistant",
-    blurb: "",
-  },
-  {
-    title: "What movie should I watch tonight?",
-    blurb: "",
-  },
-  {
-    title: "Yadio",
     blurb: "",
   },
 ];
