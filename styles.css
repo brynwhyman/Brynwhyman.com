@@ -1,0 +1,119 @@
+@font-face {
+  font-family: "Archivo";
+  src: url("fonts/archivo.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: swap;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #111;
+  font-family: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+a { color: inherit; }
+
+.bar, main, footer {
+  max-width: 760px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* Header */
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background: #fff;
+  font-size: 1.05rem;
+}
+.bar .name { font-weight: 800; text-decoration: none; letter-spacing: -0.01em; }
+.bar nav { display: flex; gap: 28px; }
+.bar nav a { text-underline-offset: 4px; text-decoration-thickness: 1px; }
+
+/* Intro */
+.hero {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
+  max-width: 15em;
+  margin: 18vh 0 22vh;
+}
+.hero strong { display: block; font-weight: 800; letter-spacing: -0.03em; }
+
+/* Section label */
+.label {
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-stretch: 125%;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin: 0 0 24px;
+}
+
+/* Projects */
+.projects {
+  display: grid;
+  gap: 88px;
+}
+
+.project img, .noimg {
+  display: block;
+  width: 100%;
+}
+.project img { height: auto; }
+.noimg { aspect-ratio: 16 / 10; }
+
+.project > a { display: block; text-decoration: none; }
+
+.noimg {
+  display: grid;
+  place-items: center;
+  background: #f1f1f1;
+  color: #c4c4c4;
+  font-weight: 800;
+  font-size: 1.4rem;
+}
+
+.project p, .noimg { overflow-wrap: anywhere; }
+
+.project p {
+  margin: 18px 0 0;
+  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+.project p a, .project p strong {
+  font-weight: 800;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+}
+.project p a:hover { text-decoration-thickness: 4px; }
+
+footer {
+  margin-top: 160px;
+  padding-bottom: 40px;
+  font-size: 0.9rem;
+  color: #888;
+}
+
+@media (max-width: 760px) {
+  .bar, main, footer { padding-left: 16px; padding-right: 16px; }
+  .projects { gap: 56px; }
+  .hero { margin: 12vh 0 16vh; }
+}
