@@ -28,5 +28,6 @@ window.PROJECTS = [
   {
     title: "Rocky Assistant",
     blurb: "",
+    url: "https://github.com/brynwhyman/rocky-family-assistant",
   },
 ];
