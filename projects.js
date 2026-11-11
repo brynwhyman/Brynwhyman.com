@@ -11,6 +11,12 @@
 
 window.PROJECTS = [
   {
+    title: "Shipped Anyway",
+    image: "images/shipped-anyway.jpg",
+    blurb: "",
+    url: "https://claude.ai/artifact/NTgyCo1qeE9HVrs5Bi5mrU",
+  },
+  {
     title: "Bad Motherfucker",
     image: "images/bad-motherfucker.jpg",
     blurb: "",
